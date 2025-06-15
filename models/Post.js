@@ -185,5 +185,12 @@ Post.delete = function (postIdToDelete, currentUserId) {
     })
   }
 
+  Post.countPostsByAuthor = function(id) {
+      return new Promise(async (resolve, reject)=>{
+          let postCount = await postsCollection.countDocuments({author: id})
+          resolve(postCount)
+      })
+  }
+
 
 module.exports = Post
